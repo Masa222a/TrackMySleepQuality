@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityBinding
@@ -36,6 +37,8 @@ import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityB
  * and the database is updated.
  */
 class SleepQualityFragment : Fragment() {
+
+    private val args: SleepQualityFragmentArgs by navArgs()
 
     /**
      * Called when the Fragment is ready to display content to the screen.
@@ -51,11 +54,11 @@ class SleepQualityFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val arguments = SleepQualityFragmentArgs.fromBundle(argments!!)
+//        val arguments = SleepQualityFragmentArgs.fromBundle(argments!!)
 
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
 
-        val viewModelFactory = SleepQualityViewModelFactory(arguments.sleepNightKey, dataSource)
+        val viewModelFactory = SleepQualityViewModelFactory(args.sleepNightKey, dataSource)
 
         val sleepQualityViewModel =
             ViewModelProvider(
