@@ -25,9 +25,12 @@ import kotlinx.coroutines.launch
 
 class SleepQualityViewModel(
     private val sleepNightKey: Long = 0L,
-    val database: SleepDatabaseDao) : ViewModel() {
+    dataSource: SleepDatabaseDao) : ViewModel() {
+
+    val database = dataSource
 
     private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
+
     val navigateToSleepTracker: LiveData<Boolean?>
     get() = _navigateToSleepTracker
 
