@@ -29,7 +29,7 @@ import com.example.android.trackmysleepquality.database.SleepNight
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
-//aaaaaaaaa
+
 /**
  * These functions create a formatted string that can be set in a TextView.
  */
@@ -127,7 +127,7 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         return Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)
     } else {
-        return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        return Html.fromHtml(sb.toString())
     }
 }
 
